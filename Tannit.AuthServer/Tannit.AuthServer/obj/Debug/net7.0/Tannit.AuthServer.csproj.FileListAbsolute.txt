@@ -58,3 +58,4 @@ C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Duende.IdentityServer.AspNetIdentity.dll
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\keys\is-signing-key-5371A5EEB39E6BD65C67A00F250002ED.json

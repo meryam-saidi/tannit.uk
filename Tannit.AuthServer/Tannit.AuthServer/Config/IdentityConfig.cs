@@ -1,4 +1,5 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
 namespace Tannit.AuthServer.Config
 {
@@ -16,27 +17,47 @@ namespace Tannit.AuthServer.Config
             new ApiScope[]
             {
                 new ApiScope("tannitapi.read", "Read access to Tannit API"),
-                new ApiScope("tannitapi.write", "Write access to Tannit API")
+                new ApiScope("tannitapi.write", "Write access to Tannit API"),
+                new ApiScope("api1", "Tannit API")
             };
 
         public static IEnumerable<Client> Clients =>
-            new Client[]
+            new[]
             {
-                new Client
-                {
-                    ClientId = "tannit_web_client",
-                    AllowedGrantTypes = GrantTypes.Code,
-                    RequireClientSecret = false,
-                    RequireConsent = false,
+        new Client
+        {
+            ClientId = "tannit_web_client",
+            ClientName = "Tannit Web Client",
 
+            AllowedGrantTypes = GrantTypes.Code,
+            RequireClientSecret = false,
+            RequirePkce = true,
 
-                    RedirectUris = { "https://localhost:3000/signin-oidc" }, // à adapter par la suite selon le frontend
-                    //PostLogoutRedirectUris = { "https://localhost:3000/logout" },
+            RedirectUris = {
+                "http://localhost:3000/callback"
+            },
 
-                    AllowedScopes = { "openid", "profile", "email", "tannitapi.read" },
-                    AllowAccessTokensViaBrowser = true,
-                    RequirePkce = false
-                }
+            PostLogoutRedirectUris = {
+                "http://localhost:3000"
+            },
+            
+            AllowedScopes = {
+                IdentityServerConstants.StandardScopes.OpenId,
+                IdentityServerConstants.StandardScopes.Profile,
+                IdentityServerConstants.StandardScopes.Email,
+                //"tannitapi.read", 
+                "api1"
+            },
+            
+            AllowedCorsOrigins = { 
+                "http://localhost:3000" 
+            },
+
+            AllowAccessTokensViaBrowser = true,
+
+            AllowOfflineAccess = true
+        }
             };
+
     }
 }

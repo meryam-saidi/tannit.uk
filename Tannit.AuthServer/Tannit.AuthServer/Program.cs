@@ -37,7 +37,7 @@ builder.Services.AddAuthentication()
         options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
         options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
         options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-        options.CallbackPath = "/signin-google";
+        //options.CallbackPath = "/signin-google";
     });
 
 // ===== IDENTITY SERVER (Duende)
@@ -47,6 +47,9 @@ builder.Services.AddIdentityServer(options =>
     options.Events.RaiseFailureEvents = true;
     options.Events.RaiseInformationEvents = true;
     options.Events.RaiseSuccessEvents = true;
+
+    // Active explicitement le support du flow "password"
+    options.InputLengthRestrictions.Password = 128;
 })
 .AddInMemoryClients(IdentityConfig.Clients)
 .AddInMemoryApiScopes(IdentityConfig.ApiScopes)
@@ -73,6 +76,18 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+// ===== Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+              //.AllowCredentials();
+    });
+});
+
 var app = builder.Build();
 
 // ===== MIDDLEWARE PIPELINE
@@ -86,6 +101,8 @@ app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.UseRouting();
+
+app.UseCors("CorsPolicy");
 
 app.UseIdentityServer(); // Nécessaire pour IdentityServer
 app.UseAuthentication(); // Nécessaire pour JWT & Google OAuth
