@@ -11,6 +11,7 @@ namespace Tannit.AuthServer.Repositories
     {
         private readonly IDbConnection _db;
         private readonly PasswordService _passwordService;
+        private static readonly List<User> _users = new List<User>();
 
         public UserRepository(IDbConnection db, PasswordService passwordService)
         {
@@ -26,7 +27,7 @@ namespace Tannit.AuthServer.Repositories
 
         public async Task<User?> GetByIdAsync(Guid userId)
         {
-            const string sql = "SELECT Id, Email, PasswordHash, Balance FROM Users WHERE Id = @Id";
+            const string sql = "SELECT Id, Email, Balance FROM Users WHERE Id = @Id";
             return await _db.QuerySingleOrDefaultAsync<User>(sql, new { Id = userId });
         }
 
@@ -47,5 +48,41 @@ namespace Tannit.AuthServer.Repositories
 
             await _db.ExecuteAsync(sql, user);
         }
+
+        public Task UpdateUserAsync(User user)
+        {
+            var existingUser = _users.FirstOrDefault(u => u.Id == user.Id);
+            if (existingUser != null)
+            {
+                // Mettre à jour les propriétés de l'utilisateur existant
+                existingUser.Email = user.Email;
+                existingUser.PasswordHash = user.PasswordHash;
+                existingUser.Role = user.Role;
+                existingUser.Balance = user.Balance;
+                existingUser.IsEmailVerified = user.IsEmailVerified;
+                // ... mettez à jour toutes les autres propriétés pertinentes
+            }
+            return Task.CompletedTask;
+        }
+
+        public async Task UpdateBalanceAsync(User user)
+        {
+            var sql = "UPDATE Users SET Balance = @Balance WHERE Id = @Id";
+            await _db.ExecuteAsync(sql, new { user.Balance, user.Id });
+        }
+
+        public async Task StoreEmailVerification(Guid id, string email, string code)
+        {
+            var sql = @"INSERT INTO EmailVerifications (Id, Email, Code, Expiration, IsUsed)
+                VALUES (@Id, @Email, @Code, @Expiration, 0)";
+            await _db.ExecuteAsync(sql, new
+            {
+                Id = id,
+                Email = email,
+                Code = code,
+                Expiration = DateTime.UtcNow.AddMinutes(10)
+            });
+        }
+
     }
 }

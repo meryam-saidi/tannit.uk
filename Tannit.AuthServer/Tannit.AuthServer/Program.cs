@@ -24,22 +24,55 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<PasswordService>();
 builder.Services.AddScoped<JwtService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IEmailVerificationRepository, EmailVerificationRepository>();
+builder.Services.AddHostedService<ExpiredCodeCleanupService>();
 
 // ===== CONTROLLERS & SWAGGER
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ===== AUTHENTIFICATION GOOGLE (OAuth)
-builder.Services.AddAuthentication()
-    .AddGoogle("Google", options =>
+// ===== AUTHENTICATION
+/*
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!);
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.Authority = "https://localhost:7111"; // IdentityServer
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = false
+        };
+    });
+*/
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!);
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(key),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
+
+
+/*
+    .AddGoogle("Google", options => // Ajouter Google ici
     {
         options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
         options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
         options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
         //options.CallbackPath = "/signin-google";
     });
-
+*/
 // ===== IDENTITY SERVER (Duende)
 builder.Services.AddIdentityServer(options =>
 {
@@ -56,35 +89,16 @@ builder.Services.AddIdentityServer(options =>
 .AddInMemoryIdentityResources(IdentityConfig.IdentityResources)
 .AddDeveloperSigningCredential(); // Ne pas utiliser en prod (remplacer par une clé persistante)
 
-// ===== AUTHENTIFICATION JWT
-var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!);
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-.AddJwtBearer(options =>
-{
-    options.RequireHttpsMetadata = false; // Mettre à true en prod
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = false, // À activer et configurer pour production
-        ValidateAudience = false
-    };
-});
-
 // ===== Add CORS Policy
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
     {
         policy.WithOrigins("http://localhost:3000")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
-              //.AllowCredentials();
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .WithExposedHeaders("Authorization");
     });
 });
 
@@ -109,5 +123,6 @@ app.UseAuthentication(); // Nécessaire pour JWT & Google OAuth
 app.UseAuthorization();
 
 app.MapDefaultControllerRoute(); // mappe automatiquement les controllers
+app.MapControllers();
 
 app.Run();

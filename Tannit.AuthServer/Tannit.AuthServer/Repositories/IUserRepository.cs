@@ -8,5 +8,7 @@ namespace Tannit.AuthServer.Repositories
         Task<User?> GetByIdAsync(Guid userId);
         Task<bool> ValidateCredentialsAsync(string email, string password);
         Task AddUserAsync(User user);
+        Task UpdateUserAsync(User user);
+        Task UpdateBalanceAsync(User user);
     }
 }

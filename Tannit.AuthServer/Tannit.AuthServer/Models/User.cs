@@ -20,5 +20,7 @@ namespace Tannit.AuthServer.Models
         public string Role { get; set; } = default;
 
         public decimal Balance { get; set; }
+
+        public bool IsEmailVerified { get; set; } = false; 
     }
 }

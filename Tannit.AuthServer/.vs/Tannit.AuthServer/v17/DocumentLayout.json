@@ -3,16 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\services\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\config\\identityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\config\\identityconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\services\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\services\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|c:\\users\\mariem\\desktop\\tannitapp\\tannit.authserver\\tannit.authserver\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4B2BAA1D-398C-472A-AD01-C9C11BCA83AF}|Tannit.AuthServer\\Tannit.AuthServer.csproj|solutionrelative:tannit.authserver\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,49 +42,118 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Repositories\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Repositories\\IUserRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T11:47:01.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Program.cs",
               "RelativeDocumentMoniker": "Tannit.AuthServer\\Program.cs",
               "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Program.cs",
               "RelativeToolTip": "Tannit.AuthServer\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAYwEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T17:50:58.44Z",
+              "WhenOpened": "2025-07-27T14:02:25.12Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\appsettings.json",
-              "RelativeDocumentMoniker": "Tannit.AuthServer\\appsettings.json",
-              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\appsettings.json",
-              "RelativeToolTip": "Tannit.AuthServer\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-30T17:50:57.419Z",
+              "DocumentIndex": 4,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Services\\JwtService.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Services\\JwtService.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Services\\JwtService.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Services\\JwtService.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAuwCAAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T14:21:05.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAAFUAAAAAAAAAAAAcwGoAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-26T21:00:46.224Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "PasswordService.cs",
-              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Services\\PasswordService.cs",
-              "RelativeDocumentMoniker": "Tannit.AuthServer\\Services\\PasswordService.cs",
-              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Services\\PasswordService.cs",
-              "RelativeToolTip": "Tannit.AuthServer\\Services\\PasswordService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Repositories\\UserRepository.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAA4wEMAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-30T17:50:54.274Z",
+              "WhenOpened": "2025-07-27T16:35:05.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Models\\User.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Models\\User.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T16:35:42.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Services\\AuthService.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Services\\AuthService.cs",
+              "ViewState": "AQIAAEoAAAAAAAAAAAAwwFIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T16:33:40.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IdentityConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Config\\IdentityConfig.cs",
+              "RelativeDocumentMoniker": "Tannit.AuthServer\\Config\\IdentityConfig.cs",
+              "ToolTip": "C:\\Users\\Mariem\\Desktop\\TannitApp\\Tannit.AuthServer\\Tannit.AuthServer\\Config\\IdentityConfig.cs",
+              "RelativeToolTip": "Tannit.AuthServer\\Config\\IdentityConfig.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAA1wA8AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-27T16:29:53.791Z",
               "EditorCaption": ""
             }
           ]
@@ -80,10 +169,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }
