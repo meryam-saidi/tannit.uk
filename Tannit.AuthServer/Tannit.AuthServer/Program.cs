@@ -84,9 +84,9 @@ builder.Services.AddIdentityServer(options =>
     // Active explicitement le support du flow "password"
     options.InputLengthRestrictions.Password = 128;
 })
-.AddInMemoryClients(IdentityConfig.Clients)
-.AddInMemoryApiScopes(IdentityConfig.ApiScopes)
-.AddInMemoryIdentityResources(IdentityConfig.IdentityResources)
+.AddInMemoryClients(IdentityServerConfig.Clients)
+.AddInMemoryApiScopes(IdentityServerConfig.ApiScopes)
+.AddInMemoryIdentityResources(IdentityServerConfig.IdentityResources)
 .AddDeveloperSigningCredential(); // Ne pas utiliser en prod (remplacer par une clé persistante)
 
 // ===== Add CORS Policy
