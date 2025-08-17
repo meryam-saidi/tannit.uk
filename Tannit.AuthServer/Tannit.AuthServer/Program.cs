@@ -27,14 +27,17 @@ builder.Services.AddScoped<JwtService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IEmailVerificationRepository, EmailVerificationRepository>();
 builder.Services.AddHostedService<ExpiredCodeCleanupService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 // ===== CONTROLLERS & SWAGGER
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ===== AUTHENTICATION
+// ===== AUTHENTICATION (token maison + Google)
+
 /*
+ //token émis par IdentityServer
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!);
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
@@ -47,13 +50,17 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 */
-var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!);
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//token maison
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(options =>
     {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
+        var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]!);
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
@@ -61,18 +68,33 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuer = false,
             ValidateAudience = false
         };
-    });
-
-
-/*
-    .AddGoogle("Google", options => // Ajouter Google ici
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = ctx =>
+            {
+                Console.WriteLine($"[JWT] {ctx.Exception.GetType().Name}: {ctx.Exception.Message}");
+                return Task.CompletedTask;
+            }
+        };
+    })
+    .AddGoogle("Google", options =>
     {
-        options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-        //options.CallbackPath = "/signin-google";
+        options.ClientId = builder.Configuration["Authentication:Google:ClientId"]!;
+        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"]!;
+        options.CallbackPath = "/signin-google"; // endpoint où Google redirige
+        options.Events = new Microsoft.AspNetCore.Authentication.OAuth.OAuthEvents
+        {
+            OnRedirectToAuthorizationEndpoint = ctx =>
+            {
+                // "select_account" => force l’écran de choix de compte
+                // "consent"        => force l’écran de consentement
+                var separator = ctx.RedirectUri.Contains('?') ? "&" : "?";
+                ctx.Response.Redirect($"{ctx.RedirectUri}{separator}prompt=select_account");
+                return Task.CompletedTask;
+            }
+        };
     });
-*/
+
 // ===== IDENTITY SERVER (Duende)
 builder.Services.AddIdentityServer(options =>
 {
@@ -111,14 +133,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseStaticFiles();
+//app.UseStaticFiles();
 app.UseHttpsRedirection();
 
 app.UseRouting();
+app.UseIdentityServer(); // Nécessaire pour IdentityServer
 
 app.UseCors("CorsPolicy");
 
-app.UseIdentityServer(); // Nécessaire pour IdentityServer
 app.UseAuthentication(); // Nécessaire pour JWT & Google OAuth
 app.UseAuthorization();
 

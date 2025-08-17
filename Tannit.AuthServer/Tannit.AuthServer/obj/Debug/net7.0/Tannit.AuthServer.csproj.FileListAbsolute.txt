@@ -52,8 +52,6 @@ C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Data.SqlClient.dll
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\BCrypt.Net-Next.dll
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.Google.dll
-C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\obj\Debug\net7.0\Tannit.AuthServer.RazorAssemblyInfo.cache
-C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\obj\Debug\net7.0\Tannit.AuthServer.RazorAssemblyInfo.cs
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Tannit.AuthServer.staticwebassets.runtime.json
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Duende.IdentityServer.AspNetIdentity.dll
 C:\Users\Mariem\Desktop\TannitApp\Tannit.AuthServer\Tannit.AuthServer\bin\Debug\net7.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll

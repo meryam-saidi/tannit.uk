@@ -1,9 +1,9 @@
 ﻿using Dapper;
 using System.Data.SqlClient;
-using Tannit.AuthServer.Models;
 using Microsoft.Extensions.Configuration;
 using Tannit.AuthServer.Services;
 using System.Data;
+using Tannit.AuthServer.Models.Entities;
 
 namespace Tannit.AuthServer.Repositories
 {

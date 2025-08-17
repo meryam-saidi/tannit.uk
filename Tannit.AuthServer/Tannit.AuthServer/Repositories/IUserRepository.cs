@@ -1,4 +1,4 @@
-﻿using Tannit.AuthServer.Models;
+﻿using Tannit.AuthServer.Models.Entities;
 
 namespace Tannit.AuthServer.Repositories
 {

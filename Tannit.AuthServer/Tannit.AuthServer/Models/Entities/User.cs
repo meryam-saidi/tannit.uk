@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Tannit.AuthServer.Models
+namespace Tannit.AuthServer.Models.Entities
 {
     public class User
     {
@@ -12,7 +12,7 @@ namespace Tannit.AuthServer.Models
         public string Email { get; set; } = default;
 
         //public string Username { get; set; }
-        
+
         //[Required]
         public string PasswordHash { get; set; } = default;
 
@@ -21,6 +21,6 @@ namespace Tannit.AuthServer.Models
 
         public decimal Balance { get; set; }
 
-        public bool IsEmailVerified { get; set; } = false; 
+        public bool IsEmailVerified { get; set; } = false;
     }
 }

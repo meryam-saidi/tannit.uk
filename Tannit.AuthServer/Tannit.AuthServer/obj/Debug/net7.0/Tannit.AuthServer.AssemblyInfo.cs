@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tannit.AuthServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dceb8236dbbcfac747a06516a8686b0aaaf1c5e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42c2158c97b8a48329798cdc9b71f4d5d37439da")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tannit.AuthServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tannit.AuthServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

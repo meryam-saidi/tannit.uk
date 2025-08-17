@@ -2,7 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Tannit.AuthServer.Models;
+using Tannit.AuthServer.Models.Entities;
 
 namespace Tannit.AuthServer.Services
 {

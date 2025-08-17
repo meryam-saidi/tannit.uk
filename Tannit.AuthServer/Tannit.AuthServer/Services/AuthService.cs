@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Data;
-using Tannit.AuthServer.Models;
+using Tannit.AuthServer.Models.Entities;
 using Tannit.AuthServer.Models.DTOs;
 using Tannit.AuthServer.Repositories;
 using static Duende.IdentityServer.Models.IdentityResources;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Tannit.AuthServer.Services
 {
@@ -111,5 +112,8 @@ namespace Tannit.AuthServer.Services
 
             return _jwtService.GenerateToken(user);
         }
+
+      
+
     }
 }

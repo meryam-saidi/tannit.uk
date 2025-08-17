@@ -3,7 +3,7 @@ using Duende.IdentityServer.Models;
 
 namespace Tannit.AuthServer.Config
 {
-    public static class IdentityConfig
+    public static class IdentityServerConfig
     {
         public static IEnumerable<IdentityResource> IdentityResources =>
             new IdentityResource[]
@@ -24,39 +24,39 @@ namespace Tannit.AuthServer.Config
         public static IEnumerable<Client> Clients =>
             new[]
             {
-        new Client
-        {
-            ClientId = "tannit_web_client",
-            ClientName = "Tannit Web Client",
+                new Client
+                {
+                    ClientId = "tannit_web_client",
+                    ClientName = "Tannit Web Client",
 
-            AllowedGrantTypes = GrantTypes.Code,
-            RequireClientSecret = false,
-            RequirePkce = true,
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireClientSecret = false,
+                    RequirePkce = true,
 
-            RedirectUris = {
-                "http://localhost:3000/callback"
-            },
+                    RedirectUris = {
+                        "http://localhost:3000/callback"
+                    },
 
-            PostLogoutRedirectUris = {
-                "http://localhost:3000"
-            },
+                    PostLogoutRedirectUris = {
+                        "http://localhost:3000/logout"
+                    },
             
-            AllowedScopes = {
-                IdentityServerConstants.StandardScopes.OpenId,
-                IdentityServerConstants.StandardScopes.Profile,
-                IdentityServerConstants.StandardScopes.Email,
-                //"tannitapi.read", 
-                "api1"
-            },
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        //"tannitapi.read", 
+                        "api1"
+                    },
             
-            AllowedCorsOrigins = { 
-                "http://localhost:3000" 
-            },
+                    AllowedCorsOrigins = { 
+                        "http://localhost:3000" 
+                    },
 
-            AllowAccessTokensViaBrowser = true,
+                    AllowAccessTokensViaBrowser = true,
 
-            AllowOfflineAccess = true
-        }
+                    AllowOfflineAccess = true
+                }
             };
 
     }
