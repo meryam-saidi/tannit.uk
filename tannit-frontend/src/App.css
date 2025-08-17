@@ -1,0 +1,997 @@
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Pour occuper toute la hauteur */
+}
+
+/*
+.navbar {
+  background-color: #ffffff;
+  height: 60px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 20;
+}
+*/
+
+.content {
+  display: flex;
+  flex: 1; /* Prend le reste de l'espace sous la navbar */
+}
+
+.left-panel {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.right-panel {
+  flex: 1;
+  background-color: #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.header {
+  position: relative;
+}
+
+.logo {
+  max-width: 150px; 
+  margin-top: 20px;}
+
+.register-form {
+  width: 100%;
+  max-width: 400px; /* Max width for the form */
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.social-login-buttons button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #555;
+  transition: background-color 0.3s ease;
+}
+
+.social-login-buttons button:hover {
+  background-color: #f5f5f5;
+}
+
+.social-login-buttons .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.or-separator {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+  color: #aaa;
+}
+
+.or-separator::before,
+.or-separator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #eee;
+}
+
+.or-separator::before {
+  left: 0;
+}
+
+.or-separator::after {
+  right: 0;
+}
+
+.terms-policy,
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.terms-policy a,
+.login-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.terms-policy a:hover,
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Image Gallery Styles */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-gap: 15px; /* Space between images */
+  padding: 30px; /* Padding around the gallery */
+  width: 100%;
+  max-width: 900px; /* Adjust as needed */
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the area, cropping if necessary */
+  display: block;
+  border-radius: 8px;
+}
+
+.gallery-item.main-item {
+  grid-column: span 2; /* Main item spans 2 columns */
+  grid-row: span 2; /* Main item spans 2 rows */
+}
+
+.overlay-card {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.overlay-card .icon {
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.overlay-card .value {
+  font-size: 1.1em;
+}
+
+.overlay-card.top-left {
+  top: 15px;
+  left: 15px;
+}
+
+.overlay-card.bottom-right {
+  bottom: 15px;
+  right: 15px;
+}
+
+
+/* Styles pour le conteneur de l'email pour ajouter de l'espace */
+.email-mobile-input {
+  /* margin-bottom: 20px; */ /* Ancienne valeur, si présente */
+  margin-bottom: 24px; /* Augmenté pour plus d'espace */
+}
+
+/* Styles des boutons (ajustés pour correspondre à l'image) */
+.proceed-button,
+.send-verification-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #000; /* Couleur de fond foncée comme sur l'image */
+  color: white;
+  border: none;
+  border-radius: 20px; /* Coins arrondis */
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 25px; /* Peut être ajusté si la marge du email-mobile-input est suffisante */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  /* Ombre plus prononcée pour correspondre à l'image */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Ombre plus forte */
+}
+
+.proceed-button:hover,
+.send-verification-button:hover {
+  background-color: #000; /* Légèrement plus foncé au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35); /* Ombre encore plus forte au survol */
+}
+
+/* Styles des boutons sociaux (ajustés pour correspondre à l'image) */
+.social-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Coins arrondis */
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #555;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Ombre légère pour correspondre à l'image */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.social-button:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc; /* Légère modification de la bordure au survol */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Ombre légèrement plus forte au survol */
+}
+
+.go-back-button {
+  align-self: flex-start; /* Aligne le bouton "Go back" à gauche */
+  margin-left: 0; /* Assurez-vous qu'il n'y a pas de marge gauche indésirable */
+}
+
+.code-input-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px; /* espace entre les boîtes */
+  margin-top: 20px;
+}
+
+.code-input {
+  width: 50px;
+  height: 60px;
+  font-size: 24px;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.code-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+/* Le bouton Google avec Tailwind CSS est déjà stylisé spécifiquement, mais voici la classe si vous voulez l'ajuster */
+.w-full.py-3.px-4.rounded-md.text-white.font-semibold.flex.items-center.justify-center.space-x-2.bg-red-500.hover:bg-red-600.focus:outline-none.focus:ring-2.focus:ring-red-500.focus:ring-opacity-50.transition.duration-200.ease-in-out.shadow-md {
+    /* Assurez-vous que cette classe a une ombre similaire si elle n'est pas déjà définie par Tailwind */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Ombre pour le bouton Google */
+}
+
+.w-full.py-3.px-4.rounded-md.text-white.font-semibold.flex.items-center.justify-center.space-x-2.bg-red-500.hover:bg-red-600.focus:outline-none.focus:ring-2.focus:ring-red-500.focus:ring-opacity-50.transition.duration-200.ease-in-out.shadow-md:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35); /* Ombre au survol pour le bouton Google */
+}
+
+.profile-created-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Aligner le contenu en haut */
+  min-height: 100vh;
+  overflow: hidden; /* Pour les confettis */
+  position: relative; /* Pour positionner les confettis */
+}
+
+/* Confettis */
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Permet de cliquer à travers */
+  overflow: hidden;
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f0f; /* Couleur par défaut, sera écrasée par JS */
+  opacity: 0;
+  animation: confetti-fall 3s ease-out forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* En-tête de la page (ajustements pour cette page spécifique) */
+.full-width-header {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: 15px 40px; /* Ajuster le padding */
+  display: flex;
+  justify-content: space-between; /* Pour espacer le logo et les stats */
+  align-items: center;
+  z-index: 5; /* Assurez-vous qu'il est au-dessus du contenu principal */
+}
+
+.full-width-header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.full-width-header .logo {
+  max-width: 120px; /* Taille du logo ajustée pour l'en-tête */
+  height: auto;
+}
+
+.user-stats {
+  display: flex;
+  gap: 20px; /* Espace entre XP et Balance */
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.user-stats .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.user-stats .icon {
+  font-size: 1.2em; /* Taille des icônes XP/Balance */
+}
+
+/* Zone de contenu principale (pour centrer la carte) */
+.main-content-area {
+  flex-grow: 1; /* Prend l'espace restant */
+  display: flex;
+  align-items: center; /* Centrer verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 2; /* Au-dessus des confettis */
+}
+
+/* Carte "Profile created" */
+.profile-created-card {
+  padding: 40px;
+  text-align: center;
+  max-width: 500px; /* Largeur maximale de la carte */
+  width: 100%;
+  transform: translateY(-50px); /* Légèrement décalé vers le haut pour l'effet visuel */
+  animation: slide-in 0.8s ease-out forwards;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.celebration-icon {
+  font-size: 4rem; /* Grande taille pour l'icône de célébration */
+  margin-bottom: 20px;
+}
+
+.profile-created-card h3 {
+  font-size: 2rem;
+  color: #1a237e; /* Couleur du titre */
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.profile-created-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Section bonus Tannit */
+.tannit-bonus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tannit-icon-container {
+  width: 80px;
+  height: 80px;
+  background-color: #FFFACD; /* Couleur de fond pour l'icône de pièce */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+.tannit-icon-container svg {
+  width: 50px;
+  height: 50px;
+  color: #FFD700; /* Couleur or */
+}
+
+.tannit-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+/* Bouton "Claim now" */
+.claim-button {
+  background-color: #28a745; /* Vert vif */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.claim-button:hover {
+  background-color: #218838; /* Vert plus foncé au survol */
+  transform: translateY(-2px); /* Léger effet de soulèvement */
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .full-width-header {
+    padding: 10px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-stats {
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+
+  .profile-created-card {
+    padding: 30px;
+    margin-top: 20px; /* Ajuster la marge supérieure sur mobile */
+  }
+
+  .profile-created-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .profile-created-card p {
+    font-size: 0.9rem;
+  }
+
+  .tannit-icon-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tannit-icon-container svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tannit-value {
+    font-size: 1.5rem;
+  }
+
+  .claim-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+.tannit-claimed-confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.check-icon-container {
+  width: 80px;
+  height: 80px;
+  background-color: #e6ffe6; /* Fond vert très clair */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2); /* Ombre verte */
+}
+
+.check-icon-container svg {
+  width: 50px;
+  height: 50px;
+  color: #28a745; /* Vert de coche */
+}
+
+.tannit-claimed-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a237e; /* Couleur du texte */
+}
+
+/* Bouton "Move on" */
+.move-on-button {
+  background-color: #1a237e; /* Bleu foncé */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3); /* Ombre bleue */
+}
+
+/* Ajustements responsifs (à ajouter aux media queries existantes) */
+@media (max-width: 768px) {
+  .check-icon-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .check-icon-container svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .tannit-claimed-text {
+    font-size: 1.5rem;
+  }
+
+  .move-on-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
+
+.onboarding-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Aligner le contenu en haut */
+  min-height: 100vh;
+  overflow: hidden; /* Pour les confettis */
+  position: relative; /* Pour positionner les confettis */ 
+}
+
+.onboarding-card {
+  /* Réutilise les styles de la carte des pages précédentes */
+  padding: 40px;
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+  transform: translateY(-50px);
+  animation: slide-in 0.8s ease-out forwards;
+}
+
+.onboarding-steps-container {
+  width: 100%;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espace entre les étapes */
+}
+
+.onboarding-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.onboarding-step:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.onboarding-step.completed {
+  background-color: #f0fdf4; /* Fond vert clair pour les étapes terminées */
+  border-color: #d1f7d1;
+}
+
+.onboarding-step .step-icon-container {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-step.completed .step-icon-container {
+  background-color: #28a745;
+}
+
+.onboarding-step.completed .icon-completed {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.onboarding-step .icon-pending {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+}
+
+.onboarding-step .step-info {
+  flex-grow: 1; /* Prend l'espace restant */
+  margin-left: 15px;
+}
+
+.onboarding-step .step-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.onboarding-step .step-status {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #28a745;
+  text-transform: uppercase;
+}
+
+.onboarding-step .step-time {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.onboarding-step .step-arrow {
+  color: #555;
+}
+
+.profile-settings-button {
+  width: 100%;
+  background-color: #1a237e; /* Bleu foncé */
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
+  margin-top: 20px;
+}
+
+.profile-settings-button:hover {
+  background-color: #0d125e;
+  box-shadow: 0 8px 20px rgba(26, 35, 126, 0.4);
+}
+
+.do-it-later-button {
+  width: 100%;
+  background-color: transparent;
+  color: #888;
+  padding: 15px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: color 0.2s ease;
+}
+
+.do-it-later-button:hover {
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .onboarding-card {
+    padding: 30px;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-item {
+  color: #555;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #1a237e;
+}
+
+.user-profile-page {
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Aligner le contenu en haut */
+  min-height: 100vh;
+  overflow: hidden; /* Pour les confettis */
+  position: relative;
+}
+
+.user-stats {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #1a237e;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Conteneur principal du profil */
+.profile-container {
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+/* En-tête de profil avec image de fond */
+.profile-header-card {
+  position: relative;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.profile-header-background {
+  height: 120px;
+  background: linear-gradient(90deg, #c71313, #091852); /* Fond dégradé */
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+  top: -60px; /* Déplacer vers le haut pour chevaucher l'arrière-plan */
+}
+
+.profile-picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  background-color: #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.profile-name {
+  margin-top: 80px;
+  margin-left: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a237e;
+}
+
+/* Onglets de navigation */
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 20px;
+}
+
+.profile-tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #888;
+  font-weight: 500;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.profile-tab:hover {
+  color: #1a237e;
+}
+
+.profile-tab.active {
+  color: #1a237e;
+  border-bottom: 2px solid #1a237e;
+}
+
+/* Contenu des sections */
+.profile-content {
+  padding: 0 20px;
+}
+
+.profile-section {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.section-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 5px;
+}
+
+.section-header p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.section-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #1a237e;
+}
+
+.form-group input[disabled] {
+  background-color: #f0f0f0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.section-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.save-button {
+  background-color: #1a237e;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.save-button:hover {
+  background-color: #0d125e;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .full-width-header .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links, .user-stats {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .full-width-header {
+    padding: 10px 20px;
+  }
+  .profile-container {
+    padding: 10px;
+  }
+  .profile-info {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    top: -50px;
+  }
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  .profile-name {
+    margin-left: 0;
+    font-size: 1.5rem;
+  }
+  .profile-tabs {
+    padding-left: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .profile-tab {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  .profile-section {
+    padding: 20px;
+  }
+  .section-form {
+    grid-template-columns: 1fr;
+  }
+}
