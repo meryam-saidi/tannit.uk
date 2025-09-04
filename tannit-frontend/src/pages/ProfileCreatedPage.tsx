@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import '../App.css';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { RootState } from '../store/store';
 
 export const claimReward = async (token: string) => {
   return axios.post(

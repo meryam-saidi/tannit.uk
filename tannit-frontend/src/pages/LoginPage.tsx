@@ -91,12 +91,22 @@ const LoginFormContent: React.FC = () => {
         }
     };
 
-  return (
+    const API_BASE ="https://localhost:7111";
+    const FRONT_CALLBACK = `${window.location.origin}/GoogleCallback`;
+    const startGoogleLogin = async (e: React.FormEvent) =>{
+      const url = `${API_BASE}/api/auth/google-login?returnUrl=${encodeURIComponent(FRONT_CALLBACK)}`;
+      window.location.href = url;
+    }
+  
+    return (
     <div className="register-form">
       <p className="register-text">Login</p>
       <h2>Login into your account</h2>
       <div className="social-login-buttons">
-        <button className="social-button google">
+        <button 
+          onClick={startGoogleLogin} 
+          className="google-btn"
+        >
           <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="Google Icon" className="icon" /> Continue with Google
         </button>
         <button className="social-button facebook">

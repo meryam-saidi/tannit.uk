@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header'; // Assurez-vous que le chemin est correct
 import '../App.css';
 import { useNavigate } from 'react-router-dom';
+import AppHeader from '../components/AppHeader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 // Type pour une propriété
 interface Property {
@@ -23,9 +26,11 @@ interface Property {
 
 const PropertiesPage: React.FC = () => {
   const navigate = useNavigate();
-  const [balance, setBalance] = useState(3200);
+  const [balance, setBalance] = useState(0);
   const [xp, setXp] = useState(8);
   const [activeTab, setActiveTab] = useState('Properties');
+  const avatarUrl = undefined;
+  const token = useSelector((state: RootState) => state.auth.token);
 
   // Données de propriétés simulées
   const [properties, setProperties] = useState<Property[]>([
@@ -215,34 +220,6 @@ const PropertiesPage: React.FC = () => {
   return (
     <div className="app-container properties-page">
       {/* En-tête de la page */}
-      <header className="header full-width-header">
-        <nav className="navbar">
-          <div>
-            <a href="/">
-              <img src="./logo1.png" alt="Tannit Logo" className="logo" />
-            </a>
-          </div>
-          <div className="nav-links">
-            <a href="/dashboard" className="nav-item">Dashboard</a>
-            <a href="/properties" className="nav-item active">Properties</a>
-            <a href="/marketplace" className="nav-item">Marketplace</a>
-            <a href="/forum" className="nav-item">Forum</a>
-          </div>
-          <div className="user-stats">
-            <div className="stat-item">
-              <span className="icon">🟢</span>
-              <span className="value">{xp}K XP</span>
-            </div>
-            <div className="stat-item">
-              <span className="icon">🟡</span>
-              <span className="value">BALANCE {balance}</span>
-            </div>
-            <div className="profile-icon">
-              <img src="https://placehold.co/40x40/fff/333?text=A" alt="Avatar" className="avatar" />
-            </div>
-          </div>
-        </nav>
-      </header>
 
       <div className="properties-container">
         {/* Onglets des propriétés */}

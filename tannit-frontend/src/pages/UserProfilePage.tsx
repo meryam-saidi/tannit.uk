@@ -3,7 +3,8 @@ import Header from '../components/Header'; // Assurez-vous que le chemin est cor
 import '../App.css'; // Fichier CSS pour les styles globaux
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { RootState } from '../store/store';
+import AppHeader from '../components/AppHeader';
 
 // Type pour les données utilisateur
 interface UserProfile {
@@ -45,59 +46,63 @@ const UserProfilePage: React.FC = () => {
   const [xp, setXp] = useState(0);
   const [activeTab, setActiveTab] = useState('My details');
   const token = useSelector((state: RootState) => state.auth.token); 
+  const avatarUrl = undefined;
 
-    useEffect(() => {
-    const fetchProfileData = async (token: string) => {
+  useEffect(() => {
+    if (!token) {
+      alert("Token manquant. Veuillez vous reconnecter.");
+      navigate("/loginPage", { replace: true });
+      return;
+    }
+
+    const load = async () => {
       try {
-        const response = await fetch('https://localhost:7111/api/auth/profile', {
-          method: 'GET',
+        // 1) Récupérer le profil MÉTIER depuis le backend (balance, etc.)
+        const res = await fetch("https://localhost:7111/api/auth/profile", {
+          method: "GET",
           headers: {
-            // Assurez-vous d'inclure le token d'authentification si nécessaire
-            'Authorization': `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch profile data');
+        if (res.status === 401) {
+          navigate("/loginPage", { replace: true });
+          return;
+        }
+        if (!res.ok) {
+          throw new Error(`Failed to fetch (${res.status})`);
         }
 
-        const data = await response.json();
+        const me = await res.json() as {
+          authUserId: string;
+          email: string;
+          balance: number;
+          vestedBalance: number;
+          kycStatus: string;
+        };
 
-        // Extraire la partie avant "@" de l'email pour le nom d'utilisateur
-        const username = data.email.split('@')[0];
+        // 2) Mettre à jour le header
+        setBalance(me.balance ?? 0);
+        // (si tu as une logique XP ailleurs, garde-la; sinon laisse à 0)
+        setXp(0);
 
-        // Mettre à jour l'état du composant avec les données de l'API
-        setProfileData(prevData => ({
-          ...prevData,
-          email: data.email,
-          fullName: username, // Affecter le nom d'utilisateur extrait
-          // Vous pouvez également mettre à jour d'autres champs si l'API les renvoie
+        // 3) Alimenter les infos de base du profil affiché
+        const username = me.email.split("@")[0];
+        setProfileData(prev => ({
+          ...prev,
+          email: me.email,
+          fullName: username,
         }));
-        
-        // Mettre à jour le solde et l'XP
-        setBalance(data.balance || 0); // Utiliser 0 par défaut si balance n'est pas présent
-        setXp(data.xp || 0); // Utiliser 0 par défaut si xp n'est pas présent
 
       } catch (error) {
-        console.error("Error fetching profile data:", error);
-        // Gérer l'erreur, par exemple en affichant un message à l'utilisateur
+        console.error("Error loading", error);
+        alert("Impossible de charger votre profil. Veuillez réessayer.");
       }
     };
 
-    try {
-      if (!token) {
-        alert("Token manquant. Veuillez vous reconnecter.");
-        return;
-      }
-    console.log("token dans user profile", token);
-
-    fetchProfileData(token);
-    
-    }catch (error: any) {
-      console.error("Erreur lors du fetch du user details :", error.response?.data || error.message);
-      alert("Échec du fetch : " + (error.response?.data || error.message));
-    }
-  }, []); // Le tableau de dépendances vide [] garantit que cet effet ne s'exécute qu'une seule fois au montage du composant.
+    load();
+  }, [token, navigate]);
+  // Le tableau de dépendances vide [] garantit que cet effet ne s'exécute qu'une seule fois au montage du composant.
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -133,35 +138,7 @@ const UserProfilePage: React.FC = () => {
   return (
     <div className="user-profile-page">
       {/* En-tête de la page */}
-      <header className="header full-width-header">
-        <nav className="navbar">
-          <div>
-            <a href="/">
-              <img src="./logo1.png" alt="Tannit Logo" className="logo" />
-            </a>
-          </div>
-          <div className="nav-links">
-            <a href="/dashboard" className="nav-item">Dashboard</a>
-            <a href="/properties" className="nav-item">Properties</a>
-            <a href="/marketplace" className="nav-item">Marketplace</a>
-            <a href="/forum" className="nav-item">Forum</a>
-          </div>
-          <div className="user-stats">
-            <div className="stat-item">
-              <span className="icon">🟢</span>
-              <span className="value">{xp}K XP</span>
-            </div>
-            <div className="stat-item">
-              <span className="icon">🟡</span>
-              <span className="value">BALANCE {balance}</span>
-            </div>
-            <div className="profile-icon">
-              <img src="https://placehold.co/40x40/fff/333?text=M" alt="Avatar" className="avatar" />
-            </div>
-          </div>
-        </nav>
-      </header>
-
+      
       <div className="profile-container">
         <div className="profile-header-card">
           <div className="profile-header-background"></div>

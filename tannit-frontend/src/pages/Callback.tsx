@@ -4,11 +4,13 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setToken } from "../store/authSlice";
+import { fetchAccountMe } from "../store/accountSlice";
+import { useAppDispatch } from "../store/hooks";
 
 const Callback = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch(); // <-- typé AppDispatch
 
   useEffect(() => {
     const handleOAuthCallback = async () => {
@@ -36,11 +38,12 @@ const Callback = () => {
           redirectUri: 'http://localhost:3000/callback' // doit matcher avec le registered redirect_uri côté IdentityServer
         });
 
-        const { token } = response.data;
+        const { token, isNew } = response.data;
 
         if (token) {
           dispatch(setToken(token));
-          navigate('/dashboard');
+          //dispatch(fetchAccountMe());
+          navigate("/ProfileCreatedPage");
         } else {
           console.error('Pas de accessToken reçu');
           navigate('/login');
